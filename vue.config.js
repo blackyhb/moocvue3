@@ -10,7 +10,16 @@ module.exports = {
       port: 8080, // 服务端口
       https: false,
       hotOnly: false,
-      proxy: null, // 设置代理
+      proxy: {
+        '/api':{
+          target: 'http://mooc.atelink.com/',
+          changeOrigin: true,
+          ws: true,
+          pathRewrite: {
+            '^/api': ''
+          }
+        }
+      }, // 设置代理
       before: app => {}
     },
   }

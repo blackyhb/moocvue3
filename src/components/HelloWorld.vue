@@ -10,6 +10,55 @@ export default {
   name: 'HelloWorld',
   props: {
     msg: String
+  },
+  created(){
+    //  this.matches();
+    //  this.boutiqueOne()
+    this.category()
+  },
+  methods:{
+    async matches() {
+      // 这里用try catch包裹，请求失败的时候就执行catch里的
+      try {
+        //定义参数对象
+        let params = {
+          type: 'zc'
+        }
+        let res = await this.$api.matches.matches()
+
+        console.log('​getMatches -> res', res)
+      } catch (e) {
+        console.log('​catch -> e', e)
+      }
+    },
+    async boutiqueOne() {
+      // 这里用try catch包裹，请求失败的时候就执行catch里的
+      try {
+        //定义参数对象
+        let params = {
+          type: 'zc'
+        }
+        let res = await this.$api.matches.boutiqueOne()
+
+        console.log('boutiqueOne -> res', res)
+      } catch (e) {
+        console.log('​catch -> e', e)
+      }
+    },
+    async category() {
+      // 这里用try catch包裹，请求失败的时候就执行catch里的
+      try {
+        //定义参数对象
+        let params = {
+          type: 'zc'
+        }
+        let res = await this.$api.matches.category()
+
+        console.log('category -> res', res)
+      } catch (e) {
+        console.log('​catch -> e', e)
+      }
+    },
   }
 }
 </script>

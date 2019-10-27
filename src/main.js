@@ -3,6 +3,10 @@ import App from './App.vue'
 import router from './router/index'
 import store from './store'
 
+
+import api from './api/install'
+Vue.use(api)
+
 Vue.config.productionTip = false
 
 new Vue({

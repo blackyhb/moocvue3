@@ -1,7 +1,7 @@
-import matches from './matches'
+import home from './home'  //首页
 import user from './user'
 
 export default {
-  matches,
+  home,
   user
 }

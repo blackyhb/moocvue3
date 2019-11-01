@@ -1,9 +1,13 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import User from './user'
-// import Home from '././views/Home.vue'
+
 
 Vue.use(Router)
+
+
+
+
 
 export default new Router({
   mode: 'history',
@@ -12,8 +16,12 @@ export default new Router({
     {
       path: '/',
       name: 'home',
-      component: resolve=>require(['@/views/Home'],resolve),
+      component: resolve=>require(['@/views/home/home'],resolve),
     },
     ...User
-  ]
+  ],
 })
+
+
+
+

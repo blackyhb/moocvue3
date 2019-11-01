@@ -16,7 +16,7 @@ switch (process.env.NODE_ENV) {
     baseUrl = 'https://api.feleti.cn' // 生产环境url
     break
   default:
-    console.log(baseUrl,'=>baseUrl')
+    // console.log(baseUrl,'=>baseUrl')
 }
 
 export default baseUrl

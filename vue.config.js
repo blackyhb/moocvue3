@@ -1,4 +1,5 @@
 // vue.config.js
+const path=require("path");
 module.exports = {
     baseUrl: '/',
     outputDir: 'dist', // 打包的目录
@@ -22,4 +23,5 @@ module.exports = {
       }, // 设置代理
       before: app => {}
     },
+    
   }

@@ -1,0 +1,49 @@
+*{
+    margin:0;
+    padding:0;
+	  font-family: “Microsoft YaHei”; 
+    font-size:16px;
+    box-sizing: border-box;
+}
+ul,ol{
+	padding: 0px;
+	margin: 0px;
+	list-style-type: none;
+}
+li{
+    float:left;
+}
+input:focus{ outline:none; }
+a{
+	color: #333333;
+	text-decoration: none;
+}
+a:hover{color:#f3960f;}
+img{ border: none;}
+::-ms-clear,::-ms-reveal{display:none;}
+.fl{float:left;}
+.fr{float:right;}
+.clearF:after{
+    display:block;
+    content:'';
+    clear:both;
+}
+input{
+    color:#999999;
+}
+::-webkit-input-placeholder{
+	font-size: 14px;
+	color:#999;
+}
+:-moz-placeholder {
+	font-size: 14px;
+	color:#999;
+}
+::-moz-placeholder { 
+	font-size: 14px;
+	color:#999;
+}
+:-ms-input-placeholder { 
+	font-size: 14px;
+	color:#999;
+}

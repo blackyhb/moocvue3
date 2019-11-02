@@ -31,7 +31,7 @@
 
         },
         login(){
-            
+            this.$router.push({path:'/personal'});
         }
     },
 

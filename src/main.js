@@ -1,4 +1,4 @@
-import Vue from 'vue'
+// import Vue from 'vue'
 import App from './App.vue'
 import router from './router/index'
 import store from './store/index'
@@ -12,11 +12,11 @@ Vue.use(api)
 Vue.config.productionTip = false
 
 // 全局路由守卫
-router.beforeEach((to, from, next) => {
+// router.beforeEach((to, from, next) => {
   // console.log('to',to.name)
   // console.log('from',from.name)
   // store.commit('FUN',{code:"3"})  
-  next()
+  // next()
 //   const nextRoute = ['User', 'Cart', 'GoodsDetail'] // 需要登录的页面
 //   let isLogin = localTake('userMsg')  // 判断是否登录，本地存储有用户数据则视为已经登录
 //   // 未登录状态；当路由到 nextRoute 指定页时，跳转至 UserLogIn
@@ -41,7 +41,7 @@ router.beforeEach((to, from, next) => {
 //     }
 //   }
 //   next() // 必须使用 next ,执行效果依赖 next 方法的调用参数
-})
+// })
 
 
 

@@ -1,14 +1,14 @@
 <template>
-    <div id='courseList_component'>
-        <h2 class='body_h2'>推荐课程</h2>
+    <div id='newCoursebox'>
+        <h2 class='body_h2'>最新课程</h2>
         <p class='lookMore'>
         <span>学习本无底 , 前进莫彷徨</span>
         <router-link to="/courselist.html">[查看更多]</router-link>
         </p>
         <!-- <p class='nothing' v-if='nothingTitle.tui'>该分类下暂无课程</p> -->
-        <!-- <ul class='tuiCourseUl clearF'>
+        <ul class='tuiCourseUl clearF'>
           <li v-for="(list,index) in tuiCourse" :key="list.courseId" @click="jump($event,'/coursemain.html',index,'tuiCourse')" >
-              <img :src= "list.courseImgPath==null?'../assets/courseImg.jpg':list.courseImgPath" :title= 'list.courseName'  :onerror="defaultImg">
+              <img :src= "list.courseImgPath==null?'../../assets/courseImg.jpg':list.courseImgPath" :title= 'list.courseName'  :onerror="defaultImg">
               <p class='clearF'>
               <span class='fl' :title="list.courseName">{{ list.courseName }}</span>
               <span class='fr'>{{ list.courseType |courseType }}</span>
@@ -21,54 +21,53 @@
               </span>
               </p>
           </li>
-        </ul> -->
+        </ul>
     </div>
 </template>
 
 <script>
+export default {
+  name: "newCoursebox",
+  props: [],
+  data() {
+    return {
+      tuiCourse: null,
+      defaultImg: 'this.src="' + require("../../../assets/courseImg.jpg") + '"',
+    };
+  },
+  updated() {},
+  components: {},
 
-  export default {
-    name:'courseList_component',
-    props:['tuiCourse'],
-    // props:{
-    //   tuiCourse:{
-    //     type:Object
-    //   }
-    // },
-    data () {
-      return {
-        msg:''
-      };
-    },
-    updated () {
-      
-    },
-    components: {},
+  computed: {},
+  filters:{
+    courseType(v){
+      if(v==1) return "随堂模式"
+      return "自主模式"
+    }  
+  },
+  beforeMount() {},
 
-    computed: {},
+  mounted() {
+    this.newCourse()
+  },
 
-    beforeMount() {},
-
-    mounted() {
-      console.log(this.tuiCourse)
-    },
-
-    methods: {},
-
-    watch: {
-      'tuiCourse':function(newV,oldV){
-        console.log(newV);
-        this.msg=newV
+  methods: {
+    async newCourse() {
+      try {
+        let res = await this.$api.home.newCourse();
+        this.tuiCourse = res.data;
+      } catch (e) {
+        console.log(e);
       }
     }
+  },
 
-  }
-
+  watch: {}
+};
 </script>
 <style lang='less' scoped>
 
-@import "../../../style/public.less";
-  #body {
+#body {
   li {
     cursor: pointer;
   }

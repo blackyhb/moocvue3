@@ -13,5 +13,7 @@ export default {
   courseRecommend(params){
     return api.post(urls.courseRecommend,params,header)
   },
-
+  newCourse(params){
+    return api.get(urls.newCourse,params,header)
+  },
 }

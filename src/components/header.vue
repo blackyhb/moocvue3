@@ -3,7 +3,7 @@
         <!-- <public-alert ref='alertBox'></public-alert> -->
         <ul>
             <li>
-                <router-link to="/index.html">
+                <router-link to="/">
                     <img src="../assets/atlogo.jpg" alt="全景云课堂">
                 </router-link>    
             </li>
@@ -82,10 +82,10 @@ export default {
     },
     methods: { 
         register:function(){
-            this.$refs.registerLogin.showBox(1,1,0,0,0,0,1,0,0);
+            
         },
         login:function(){
-            this.$refs.registerLogin.showBox(1,0,1,0,0,0,1,0,0);
+            this.$router.push({path:'/personal'});
         },
         jumpGo: function(e) {
             if(this.searchValue==''){
@@ -121,20 +121,23 @@ export default {
 
 
 <style lang="less">
-    // @import "../../style/base.less";
-    @baseColor:#f3960f;
-    .wh(@w,@h){
-        width:@w;
-        height:@h;
-    }
-    .posi(@posi,@top,@left){
-        position:@posi;
-        top:@top;
-        left:@left;
-    }
-    // 列表激活样式
 
-    @height: 59px;
+    @baseColor:#f3960f;
+    @height:59px;
+.wh(@w,@h){
+    width:@w;
+    height:@h;
+}
+.posi(@posi,@top,@left){
+    position:@posi;
+    top:@top;
+    left:@left;
+}
+// 列表激活样式
+.activeBaseColor{
+    color:@baseColor!important;
+}
+
     .header {
     box-shadow: 2px 2px 8px 2px #ccc;
     background: #fff;

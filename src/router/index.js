@@ -1,15 +1,15 @@
-import Vue from 'vue'
-import Router from 'vue-router'
-import User from './user'
+// import Vue from 'vue'
+// import Router from 'vue-router'
+import Personal from './personal'
 
 
-Vue.use(Router)
+Vue.use(VueRouter)
 
 
 
 
 
-export default new Router({
+export default new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,
   routes: [
@@ -18,7 +18,7 @@ export default new Router({
       name: 'home',
       component: resolve=>require(['@/views/home/home'],resolve),
     },
-    ...User
+    ...Personal
   ],
 })
 

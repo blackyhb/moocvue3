@@ -100,15 +100,28 @@
     <div id="body">
       <!-- 推荐课程 -->
       <div id='tuiCourse'>
-        <course-list :tuiCourse="tuiCourse"/>
+        <tui-courseList/>
+      </div>
+      <!-- 最新课程 -->
+      <div id='newCourse'>
+        <new-courseList/>
       </div>
     </div>
+
+
+
+
+
+    <!-- 公共尾 -->
+    <public-footer />
 
   </div>
 </template>
 
 <script>
-import courseList from '../../views/home/children/course'
+import tuicourse from '../../views/home/children/tuicourse'
+import newcourse from '../../views/home/children/newcourse'
+import footer from "../../components/footer";
 import lrbutton from "../../components/lrbutton";
 import { mapState, mapMutations } from "vuex";
 export default {
@@ -123,7 +136,6 @@ export default {
         'this.src="' + require("../../assets/acquiescence.jpg") + '"',
       fenLeiData: null,
       lunBoData: null,
-      tuiCourse:null,
     };
   },
   props: {
@@ -132,7 +144,7 @@ export default {
   mounted() {
     this.category();              //分类列表
     this.carousel();              //轮播图
-    this.courseRecommend();       //推荐课程
+    //this.courseRecommend();       //推荐课程
   },
   created() {
 
@@ -142,7 +154,9 @@ export default {
   },
   components: {
     "lr-button": lrbutton, //登录注册按钮
-    courseList
+    "public-footer":footer,
+    "tui-courseList":tuicourse,
+    "new-courseList":newcourse,
   },
   methods: {
     ...mapMutations(["FUN"]),
@@ -179,20 +193,7 @@ export default {
         console.log(e);
       }
     },
-    async courseRecommend() {
-      try {
-        let res = await this.$api.home.courseRecommend();
-        let data={
-          title:'推荐课程',
-          noCourseFlag:res.data.length!=0?false:true,
-          list:res.data
-        }
-        this.tuiCourse=data;
-      } catch (e) {
 
-        console.log(e);
-      }
-    },
   },
   watch:{
     // 'tuiCourseMsg':function(newVal,oldVal){
@@ -205,7 +206,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="less">
-@import "../../style/public.less";
+// @import "../../style/public.less";
  .el-carousel__item h3 {
     color: #475669;
     font-size: 14px;
@@ -491,11 +492,7 @@ body,
   background: url(../../assets/bk.jpg) no-repeat;
   background-size: cover;
 }
-// #lunBoBox{
-//     height:420px;
-//     padding-top:15px;
 
-// }
 #lunBo {
   width: 1076px;
   margin: 0 auto;
@@ -565,58 +562,6 @@ body,
     }
   }
 }
-.swiper-container-horizontal {
-  height: 100%;
-  > .swiper-wrapper {
-    height: 100%;
-    > div {
-      height: 100%;
-    }
-  }
-}
-#tuiCourse,
-#j1Course {
-  .tuiCourseUl {
-    li {
-      background: #f8f8f8;
-    }
-  }
-}
-#newCourse,
-#j2Course {
-  .tuiCourseUl {
-    li {
-      background: #fff;
-    }
-  }
-}
-.lookMore {
-  span,
-  a {
-    font-size: 15px;
-  }
-}
 
-// 轮播图 css
-.el-carousel__item h3 {
-  color: #475669;
-  font-size: 18px;
-  opacity: 0.75;
-  line-height: 300px;
-  margin: 0;
-}
 
-.el-carousel__item:nth-child(2n) {
-  background-color: #99a9bf;
-}
-
-.el-carousel__item:nth-child(2n + 1) {
-  background-color: #d3dce6;
-}
-#lunBo img {
-  cursor: pointer;
-}
-.nothing {
-  text-align: center;
-}
 </style>

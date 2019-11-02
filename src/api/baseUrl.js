@@ -8,12 +8,12 @@ switch (process.env.NODE_ENV) {
   case 'pre':
   console.log(2)
   
-    baseUrl = 'https://pre-server.feleti.cn' // 预上线环境url
+    baseUrl = 'http://mooc.atelink.com/' // 预上线环境url
     break
   case 'production':
   console.log(3)
   
-    baseUrl = 'https://api.feleti.cn' // 生产环境url
+    baseUrl = 'http://mooc.atelink.com/' // 生产环境url
     break
   default:
     // console.log(baseUrl,'=>baseUrl')
